@@ -1,0 +1,10 @@
+---
+# defaults file for sonarqube
+default_retries: 60
+default_delay: 10
+docker_timeout: 300
+docker_retries: 60
+docker_delay: 10
+sonarqube_version: 8.3.1-community
+sonarqube_host: 192.168.0.205
+sonarqube_port: 9000
