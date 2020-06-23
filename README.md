@@ -10,20 +10,20 @@ Requires Kubernetes, MetalLb and private Docker Registry installed.
 
 ## Role Variables
 
-| Variable                   | Required | Default               | Choices             | Comments                                   |
-|----------------------------|----------|-----------------|---------------------|--------------------------------------------------|
-| docker_timeout             | yes      | 300             | Integer value       | number of seconds before docker pull timeout     |
-| docker_retries             | yes      | 60              | Integer value       | number of tries for docker pull                  |
-| docker_delay               | yes      | 10              | Integer value       | delay in seconds between pull retries            |
-| default_retries            | yes      | 60              | Integer value       | default number of retries                        |
-| default_delay              | yes      | 60              | Integer value       | default delay in seconds between retries         |
-| gitlab_host                | no       | not defined     | ip address          | if defined will integrate authentication with    |
-| gitlab_port                | no       | not defined     | Integer value       | if defined will integrate authentication with    |
-| vault_gitlab_root_password | no       | not defined     | String value        | needed for integration with GitLab               |
-| sonarqube_version          | yes      | 8.3.1-community | version             | Docker image tag                                 |
-| sonarqube_host             | yes      | 192.168.0.205   | ip address          | ip address                                       |
-| sonarqube_port             | yes      | 9000            | Integer value       | the port to listen on for http                   |
-| images_cache_path          | no       | not defined     | Path                | Path to folder used to cache saved Docker images |
+| Variable                   | Required | Default         | Choices       | Comments                                         |
+|----------------------------|----------|-----------------|---------------|--------------------------------------------------|
+| docker_timeout             | yes      | 300             | Integer value | Number of seconds before docker pull timeout     |
+| docker_retries             | yes      | 60              | Integer value | Number of tries for docker pull                  |
+| docker_delay               | yes      | 10              | Integer value | Delay in seconds between pull retries            |
+| default_retries            | yes      | 60              | Integer value | Default number of retries                        |
+| default_delay              | yes      | 60              | Integer value | Default delay in seconds between retries         |
+| gitlab_host                | no       | not defined     | IP address    | If define will integrate authentication with     |
+| gitlab_port                | no       | not defined     | Integer value | If defined will integrate authentication with    |
+| vault_gitlab_root_password | no       | not defined     | String value  | Needed for integration with GitLab               |
+| sonarqube_version          | yes      | 8.3.1-community | version       | Docker image tag                                 |
+| sonarqube_host             | yes      | 192.168.0.205   | ip address    | IP address                                       |
+| sonarqube_port             | yes      | 9000            | Integer value | The port to listen on                            |
+| images_cache_path          | no       | not defined     | Path          | Path to folder used to cache saved Docker images |
 
 ## Example Playbook
 
