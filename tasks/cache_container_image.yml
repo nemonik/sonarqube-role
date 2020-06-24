@@ -8,9 +8,9 @@
 # You should have received a copy of the license with
 # this file. If not, please email <mjwalsh@nemonik.com>
 
-- name: create /vagrant/cache/images, if it doesn't exist
+- name: create {{ images_cache_path }}, if it doesn't exist
   file:
-    path: /vagrant/cache/images
+    path: "{{ images_cache_path }}"
     state: directory
 
 - name: save {{ item }} container image to cache 
@@ -47,12 +47,12 @@
       archive_name=${image_in_docker_storage/\//%2F}
       archive_name=${archive_name/:/%3A}
 
-      if [ ! -f "/vagrant/cache/images/${archive_name}.tar" ]; then
+      if [ ! -f "{{ images_cache_path }}/${archive_name}.tar" ]; then
         docker save ${image_in_docker_storage} > $tempfile
-        if [[ "windows" == "{{ host_os }}" ]]; then
+        if [[ "windows" == "{{ host_os | default('') }}" ]]; then
           sudo su;
         fi
-        cp -f $tempfile /vagrant/cache/images/${archive_name}.tar
+        cp -f $tempfile {{ images_cache_path }}/${archive_name}.tar
       else 
         echo "${image_in_docker_storage} is already cached."
       fi
@@ -61,3 +61,5 @@
     fi
   args:
     executable: /bin/bash
+  async: "{{ cache_container_timeout|default('300') }}"
+  poll: 0
