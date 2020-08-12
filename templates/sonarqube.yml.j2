@@ -106,7 +106,7 @@ spec:
     spec:
       containers:
       - name: sonarqube
-        image: "{{ registry_host }}:{{ registry_port }}/nemonik/sonarqube:{{ sonarqube_version }}"
+        image: {{ registry_host }}:{{ registry_port }}/nemonik/sonarqube:{{ sonarqube_version }}
         imagePullPolicy: IfNotPresent
         env:
         - name: SONARQUBE_JDBC_USERNAME
